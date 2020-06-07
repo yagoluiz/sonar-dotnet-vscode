@@ -1,0 +1,151 @@
+{
+	"name": "sonar-dotnet-vscode",
+	"displayName": "Sonar Dotnet",
+	"description": "Sonar Dotnet is an VS Code extensions that helps you detect and fix quality issues as you write code in C#.",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.45.0"
+	},
+	"categories": [
+		"Linters"
+	],
+	"keywords": [
+		"code analysis",
+		"linters",
+		"dotnet",
+		"dotnet core"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/yagoluiz/sonar-dotnet-vscode"
+	},
+	"bugs": {
+		"url": "https://github.com/yagoluiz/sonar-dotnet-vscode/issues"
+	},
+	"publisher": "yagoluiz",
+	"author": {
+		"name": "Yago Luiz"
+	},
+	"license": "MIT",
+	"activationEvents": [
+		"onCommand:sonar-dotnet-vscode.lint"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "sonar-dotnet-vscode.lint",
+				"title": "Sonar Dotnet: Lint"
+			}
+		],
+		"configuration": {
+			"title": "Sonar Dotnet",
+			"properties": {
+				"sonar-dotnet-vscode.connections.sonar": {
+					"type": "object",
+					"scope": "application",
+					"markdownDescription": "Configure connection(s) to [SonarCloud](https://sonarcloud.io) or [SonarQube](https://sonarqube.org).",
+					"examples": [
+						{
+							"organizationKey": "<myOrganizationKey>",
+							"token": "<myToken>"
+						},
+						{
+							"organizationKey": "<myOrganizationKey>",
+							"token": "<myToken>",
+							"serverUrl": "<myServerUrl>"
+						}
+					],
+					"default": {
+						"serverUrl": "https://sonarcloud.io/"
+					},
+					"anyOf": [
+						{
+							"type": "object",
+							"properties": {
+								"organizationKey": {
+									"type": "string",
+									"description": "A SonarCloud or SonarQube organization key."
+								},
+								"token": {
+									"type": "string",
+									"description": "Token generated from [My Account>Security](https://sonarcloud.io/account/security/) in SonarCloud or My Account>Security in SonarQube."
+								}
+							},
+							"additionalProperties": false,
+							"required": [
+								"organization",
+								"token"
+							]
+						},
+						{
+							"type": "object",
+							"properties": {
+								"organizationKey": {
+									"type": "string",
+									"description": "A SonarCloud or SonarQube organization key."
+								},
+								"token": {
+									"type": "string",
+									"description": "Token generated from [My Account>Security](https://sonarcloud.io/account/security/) in SonarCloud or My Account>Security in SonarQube."
+								},
+								"serverUrl": {
+									"type": "string",
+									"description": "Server url default in SonarCloud. Set server url to SonarQube."
+								}
+							},
+							"additionalProperties": false,
+							"required": [
+								"organization",
+								"token",
+								"serverUrl"
+							]
+						}
+					]
+				},
+				"sonar-dotnet-vscode.connections.project": {
+					"type": "object",
+					"scope": "resource",
+					"markdownDescription": "Bind the current workspace folder to a [SonarCloud](https://sonarcloud.io) or [SonarQube](https://sonarqube.org) project.",
+					"examples": [
+						{
+							"projectKey": "<myProjectKey>"
+						}
+					],
+					"default": {},
+					"properties": {
+						"projectKey": {
+							"type": "string",
+							"description": "Key of the project in SonarCloud/SonarQube (can be found on project homepage)"
+						}
+					},
+					"additionalProperties": false,
+					"required": [
+						"projectKey"
+					]
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.45.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"@typescript-eslint/parser": "^2.30.0",
+		"@typescript-eslint/eslint-plugin": "^2.30.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	}
+}
