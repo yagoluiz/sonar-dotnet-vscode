@@ -1,7 +1,5 @@
 # Sonar Dotnet for Visual Studio Code
 
-![CI](https://github.com/yagoluiz/sonar-dotnet-vscode/workflows/CI/badge.svg)
-
 Sonar Dotnet is an Visual Studio Code extensions that helps you detect and fix quality issues as you write code in C# using Visual Studio Code.
 
 ## Features
