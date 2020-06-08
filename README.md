@@ -1,65 +1,71 @@
 # Sonar Dotnet for Visual Studio Code
 
-This is the README for your extension "sonar-dotnet-vscode". After writing up a brief description, we recommend including the following sections.
+![CI](https://github.com/yagoluiz/sonar-dotnet-vscode/workflows/CI/badge.svg)
+
+Sonar Dotnet is an Visual Studio Code extensions that helps you detect and fix quality issues as you write code in C# using Visual Studio Code.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Open the **Command Palette** and search *Sonar Dotnet*.
 
-For example if there is an image subfolder under your extension project workspace:
+![Lint](./img/sonar-dotnet-palette.png)
 
-\!\[feature X\]\(images/feature-x.png\)
+## How to Use
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Lint
+
+1. Set your desired path in terminal
+2. Select **Sonar Dotnet: Lint** in Command Palette
+
+**Result:**
+
+![Lint](./img/sonar-dotnet-lint.png)
+
+3. Execute *dotnet build* command
+
+**Result:**
+
+![Lint](./img/sonar-dotnet-build.png)
+
+Once configured in the project it is no longer necessary to run the lint again.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+The Sonar Dotnet needs a [.NET Core 2.0+](https://dotnet.microsoft.com/download).
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Configure *organizationKey, token and serverUrl* properties in user settings:
 
-For example:
+![Settings](./img/sonar-dotnet-settings.png)
 
-This extension contributes the following settings:
+Field *serverUrl* is **optional**. Server url default is SonarCloud: https://sonarcloud.io.
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+```json
+{
+    "sonar-dotnet-vscode.connection.sonar": {
+        "organizationKey": "<myOrganizationKey>",
+        "token": "<myToken>",
+        "serverUrl": "<myServerUrl>"
+    }
+}
+```
 
-## Known Issues
+Configure *project key* in configuration file **.vscode/settings.json**.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```json
+{
+    "sonar-dotnet-vscode.connection.project": {
+        "projectKey": "<myProjectKey>"
+    }
+}
+
+```
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+See the [CHANGELOG](./CHANGELOG) for more information.
 
-### 1.0.0
+## License
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Licensed under the [MIT](./License)

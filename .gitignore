@@ -3,4 +3,6 @@ node_modules
 .vscode-test
 *.vsix
 dist
-vsc-extension-quickstart.md
+obj
+bin
+.sonarqube
