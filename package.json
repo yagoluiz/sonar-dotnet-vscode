@@ -2,10 +2,12 @@
 	"name": "sonar-dotnet-vscode",
 	"displayName": "Sonar Dotnet",
 	"description": "Sonar Dotnet is an Visual Studio Code extensions that helps you detect and fix quality issues as you write code in C# using Visual Studio Code.",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.45.0"
+	"version": "1.0.0",
+	"publisher": "yagoluiz",
+	"author": {
+		"name": "Yago Luiz"
 	},
+	"icon": "img/icon.png",
 	"categories": [
 		"Linters"
 	],
@@ -18,6 +20,7 @@
 		"csharp",
 		"C#"
 	],
+	"homepage": "https://github.com/yagoluiz/sonar-dotnet-vscode/blob/master/README.md",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/yagoluiz/sonar-dotnet-vscode"
@@ -25,11 +28,10 @@
 	"bugs": {
 		"url": "https://github.com/yagoluiz/sonar-dotnet-vscode/issues"
 	},
-	"publisher": "yagoluiz",
-	"author": {
-		"name": "Yago Luiz"
-	},
 	"license": "MIT",
+	"engines": {
+		"vscode": "^1.45.0"
+	},
 	"activationEvents": [
 		"onCommand:sonar-dotnet-vscode.lint"
 	],
