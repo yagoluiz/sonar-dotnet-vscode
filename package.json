@@ -1,7 +1,7 @@
 {
 	"name": "sonar-dotnet-vscode",
 	"displayName": "Sonar Dotnet",
-	"description": "Sonar Dotnet is an VS Code extensions that helps you detect and fix quality issues as you write code in C#.",
+	"description": "Sonar Dotnet is an Visual Studio Code extensions that helps you detect and fix quality issues as you write code in C# using Visual Studio Code.",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.45.0"
@@ -12,8 +12,11 @@
 	"keywords": [
 		"code analysis",
 		"linters",
+		"sonar",
 		"dotnet",
-		"dotnet core"
+		"dotnet core",
+		"csharp",
+		"C#"
 	],
 	"repository": {
 		"type": "git",
@@ -41,10 +44,10 @@
 		"configuration": {
 			"title": "Sonar Dotnet",
 			"properties": {
-				"sonar-dotnet-vscode.connections.sonar": {
+				"sonar-dotnet-vscode.connection.sonar": {
 					"type": "object",
 					"scope": "application",
-					"markdownDescription": "Configure connection(s) to [SonarCloud](https://sonarcloud.io) or [SonarQube](https://sonarqube.org).",
+					"markdownDescription": "Configure connection to [SonarCloud](https://sonarcloud.io) or [SonarQube](https://sonarqube.org).",
 					"examples": [
 						{
 							"organizationKey": "<myOrganizationKey>",
@@ -57,7 +60,7 @@
 						}
 					],
 					"default": {
-						"serverUrl": "https://sonarcloud.io/"
+						"serverUrl": "https://sonarcloud.io"
 					},
 					"anyOf": [
 						{
@@ -103,10 +106,10 @@
 						}
 					]
 				},
-				"sonar-dotnet-vscode.connections.project": {
+				"sonar-dotnet-vscode.connection.project": {
 					"type": "object",
 					"scope": "resource",
-					"markdownDescription": "Bind the current workspace folder to a [SonarCloud](https://sonarcloud.io) or [SonarQube](https://sonarqube.org) project.",
+					"markdownDescription": "Configure project to [SonarCloud](https://sonarcloud.io) or [SonarQube](https://sonarqube.org).",
 					"examples": [
 						{
 							"projectKey": "<myProjectKey>"
@@ -116,7 +119,7 @@
 					"properties": {
 						"projectKey": {
 							"type": "string",
-							"description": "Key of the project in SonarCloud/SonarQube (can be found on project homepage)"
+							"description": "Key of the project in SonarCloud or SonarQube."
 						}
 					},
 					"additionalProperties": false,
