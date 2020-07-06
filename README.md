@@ -29,7 +29,10 @@ Once configured in the project it is no longer necessary to run the lint again.
 
 ## Requirements
 
-The Sonar Dotnet needs a [.NET Core 2.0+](https://dotnet.microsoft.com/download).
+1. The Sonar Dotnet needs a [.NET Core 2.0+](https://dotnet.microsoft.com/download).
+2. Install tool [dotnet-sonarscanner](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild/).
+
+> *dotnet tool install --global dotnet-sonarscanner*
 
 ## Extension Settings
 
