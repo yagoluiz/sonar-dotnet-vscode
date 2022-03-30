@@ -2,7 +2,7 @@
 	"name": "sonar-dotnet-vscode",
 	"displayName": "Sonar Dotnet",
 	"description": "Sonar Dotnet is an Visual Studio Code extensions to C#.",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"publisher": "yagoluiz",
 	"author": {
 		"name": "Yago Luiz"
