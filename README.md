@@ -40,7 +40,7 @@ Configure *organizationKey, token and serverUrl* properties in user settings:
 
 ![Settings](./img/sonar-dotnet-settings.png)
 
-Field *serverUrl* is **optional**. Server url default is SonarCloud: https://sonarcloud.io.
+Field *organizationKey* and *serverUrl* is **optional**. Server url default is SonarCloud: https://sonarcloud.io.
 
 ```json
 {
@@ -69,4 +69,4 @@ See the [CHANGELOG](./CHANGELOG) for more information.
 
 ## License
 
-Licensed under the [MIT](./License)
+Licensed under the [MIT](./License).

@@ -3,7 +3,7 @@ import { workspace } from 'vscode';
 const SONAR_DOTNET_SECTION = 'sonar-dotnet-vscode';
 
 export function getOrganizationKey(): string | undefined {
-    return workspace.getConfiguration(SONAR_DOTNET_SECTION).get<string>('connection.sonar.organizationKey','default-organization');
+    return workspace.getConfiguration(SONAR_DOTNET_SECTION).get<string>('connection.sonar.organizationKey');
 }
 
 export function getToken(): string | undefined {
