@@ -5,22 +5,26 @@ export function activate(context: ExtensionContext) {
 	const lintCommand = commands.registerCommand('sonar-dotnet-vscode.lint', () => {
 		const activeTerminal = window.activeTerminal;
 		if (activeTerminal) {
-			const organizationKey = config.getOrganizationKey();
 			const token = config.getToken();
 			const serverUrl = config.getServerUrl();
 			const projectKey = config.getProjectKey();
 
-			if (!organizationKey ||
-				!token ||
-				!serverUrl ||
-				!projectKey) {
-				window.showErrorMessage('Configs required.');
+			if (!token || !serverUrl || !projectKey) {
+				window.showErrorMessage('Configs token, serverUrl and projectKey are required.');
 				return;
 			}
 
-			activeTerminal.sendText(`dotnet sonarscanner begin /k:${projectKey} /d:sonar.host.url=${serverUrl} /d:sonar.login=${token} /o:${organizationKey}`);
+			const organizationKey = config.getOrganizationKey();
+			const sonarBeginCommand = `dotnet sonarscanner begin /k:${projectKey} /d:sonar.host.url=${serverUrl} /d:sonar.login=${token}`;
+
+			if (organizationKey) {
+				activeTerminal.sendText(`${sonarBeginCommand} /o:${organizationKey}`);
+			} else {
+				activeTerminal.sendText(sonarBeginCommand);
+			}
+
 		} else {
-			window.showErrorMessage('No active terminals.');
+			window.showErrorMessage('Terminal active is required.');
 		}
 	});
 	context.subscriptions.push(lintCommand);
