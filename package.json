@@ -53,10 +53,6 @@
 					"examples": [
 						{
 							"organizationKey": "<myOrganizationKey>",
-							"token": "<myToken>"
-						},
-						{
-							"organizationKey": "<myOrganizationKey>",
 							"token": "<myToken>",
 							"serverUrl": "<myServerUrl>"
 						}
@@ -70,25 +66,7 @@
 							"properties": {
 								"organizationKey": {
 									"type": "string",
-									"description": "A SonarCloud or SonarQube organization key."
-								},
-								"token": {
-									"type": "string",
-									"description": "Token generated from [My Account>Security](https://sonarcloud.io/account/security/) in SonarCloud or My Account>Security in SonarQube."
-								}
-							},
-							"additionalProperties": false,
-							"required": [
-								"organization",
-								"token"
-							]
-						},
-						{
-							"type": "object",
-							"properties": {
-								"organizationKey": {
-									"type": "string",
-									"description": "A SonarCloud or SonarQube organization key."
+									"description": "A SonarCloud or SonarQube organization key. Optional for SonarQube."
 								},
 								"token": {
 									"type": "string",
@@ -96,14 +74,12 @@
 								},
 								"serverUrl": {
 									"type": "string",
-									"description": "Server url default in SonarCloud. Set server url to SonarQube."
+									"description": "Server url default in [SonarCloud](https://sonarcloud.io). Set server url for SonarQube."
 								}
 							},
 							"additionalProperties": false,
 							"required": [
-								"organization",
-								"token",
-								"serverUrl"
+								"token"
 							]
 						}
 					]
